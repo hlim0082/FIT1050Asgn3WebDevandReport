@@ -1,0 +1,344 @@
+/*
+	Custom styles for University Finance Club
+	Layered on top of Forty (HTML5 UP) main.css
+*/
+
+/* ===== SECTION-LEVEL BACKGROUNDS =====
+   Forty's body bg is dark navy (#242943) which works for the hero, the
+   tiles and the contact section. Our new sections (events, why, faq) need
+   their own backgrounds so the custom content has a readable, light surface
+   to sit on, regardless of dark-mode toggle. */
+#events,
+#faq {
+	background-color: #f7f8fa;
+}
+#why {
+	background-color: #ffffff;
+}
+#events h2,
+#why h2,
+#faq h2 {
+	color: #1f2937 !important;
+}
+#events p,
+#why p,
+#faq p {
+	color: #4a5460 !important;
+}
+/* Fix form field visibility in the dark contact section */
+#contact input[type="text"],
+#contact input[type="email"],
+#contact textarea {
+	background-color: rgba(255,255,255,0.08) !important;
+	color: #ffffff !important;
+	border: 1px solid rgba(255,255,255,0.2) !important;
+}
+#contact input[type="text"]:focus,
+#contact input[type="email"]:focus,
+#contact textarea:focus {
+	border-color: #f56a6a !important;
+	background-color: rgba(255,255,255,0.12) !important;
+}
+
+/* ===== Generic content section spacing ===== */
+.content-section {
+	padding: 6em 0 4em 0;
+}
+.content-section .inner {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 3em;
+}
+.content-section header.major {
+	margin-bottom: 2.5em;
+}
+.alt-bg {
+	background-color: #f5f6f7;
+}
+
+/* ===== Events grid ===== */
+.events-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1.5em;
+}
+.event-card {
+	background: #ffffff;
+	border: 1px solid #e6e8ea;
+	border-radius: 6px;
+	padding: 1.5em;
+	display: flex;
+	gap: 1.5em;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+	transition: transform .2s ease, box-shadow .2s ease;
+}
+.event-card:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+}
+.event-date {
+	flex: 0 0 70px;
+	background: #f56a6a;
+	color: #ffffff;
+	border-radius: 4px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 0.6em 0;
+	height: 80px;
+}
+.event-date .day {
+	font-size: 1.6em;
+	font-weight: 700;
+	line-height: 1;
+}
+.event-date .month {
+	font-size: 0.75em;
+	letter-spacing: 0.15em;
+	text-transform: uppercase;
+	margin-top: 0.2em;
+}
+.event-body h3 {
+	margin: 0 0 0.4em 0;
+	font-size: 1.2em;
+}
+.event-body p {
+	margin: 0 0 0.8em 0;
+	font-size: 0.95em;
+}
+.event-meta {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1.2em;
+	font-size: 0.85em;
+	color: #6b7280;
+}
+.event-meta li {
+	padding: 0;
+}
+.event-meta .icon {
+	margin-right: 0.4em;
+	color: #f56a6a;
+}
+
+/* ===== Why join / stats grid ===== */
+.stats-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 2em;
+	text-align: center;
+}
+.stat {
+	padding: 1em;
+}
+.stat-number {
+	display: block;
+	font-size: 2.8em;
+	font-weight: 700;
+	color: #f56a6a;
+	line-height: 1.1;
+	margin-bottom: 0.3em;
+}
+.stat-label {
+	display: block;
+	font-size: 0.95em;
+	color: #4a5460;
+	max-width: 220px;
+	margin: 0 auto;
+}
+
+/* ===== FAQ accordion =====
+   Note: Forty's main.css applies a heavy `button {...}` rule (uppercase,
+   letter-spacing, inset white box-shadow, fixed 3.5em height, nowrap, etc.).
+   The selectors below use button.faq-question and !important where needed
+   to win specificity and neutralise every one of those properties. */
+.faq-list {
+	max-width: 860px;
+	margin: 0 auto;
+}
+.faq-item {
+	border-bottom: 1px solid #e0e2e4;
+}
+.faq-item:first-child {
+	border-top: 1px solid #e0e2e4;
+}
+button.faq-question {
+	width: 100%;
+	background: transparent !important;
+	border: 0 !important;
+	border-radius: 0 !important;
+	box-shadow: none !important;
+	padding: 1.2em 0.5em !important;
+	margin: 0 !important;
+	font-family: inherit !important;
+	font-size: 1.05em !important;
+	font-weight: 600 !important;
+	letter-spacing: 0 !important;
+	text-transform: none !important;
+	color: #3d4449;
+	text-align: left !important;
+	white-space: normal !important;
+	cursor: pointer !important;
+	display: flex !important;
+	justify-content: space-between;
+	align-items: center;
+	height: auto !important;
+	line-height: 1.4 !important;
+	transition: color .2s ease;
+}
+button.faq-question:hover,
+button.faq-question:active,
+button.faq-question:focus {
+	background: transparent !important;
+	box-shadow: none !important;
+	color: #f56a6a !important;
+	outline: none;
+}
+button.faq-question:focus-visible {
+	outline: 2px solid #f56a6a;
+	outline-offset: 2px;
+	border-radius: 3px;
+}
+.faq-icon {
+	font-size: 1.6em;
+	font-weight: 300;
+	color: #f56a6a;
+	line-height: 1;
+	transition: transform .25s ease;
+	flex-shrink: 0;
+	margin-left: 1em;
+}
+button.faq-question[aria-expanded="true"] .faq-icon {
+	transform: rotate(45deg);
+}
+.faq-answer {
+	padding: 0 0.5em 1.2em 0.5em;
+	color: #4a5460;
+	line-height: 1.6;
+}
+.faq-answer p {
+	margin: 0;
+}
+
+/* ===== Contact heading (replaces header.major which overflows inside .split) ===== */
+#contact .contact-heading {
+	font-size: 1.75em;
+	font-weight: 700;
+	margin: 0 0 0.4em 0;
+	letter-spacing: 0;
+	text-transform: none;
+}
+#contact .contact-subtitle {
+	margin: 0 0 1.8em 0;
+	color: #4a5460;
+	font-size: 1em;
+	letter-spacing: 0;
+	text-transform: none;
+}
+
+/* ===== Theme toggle in menu ===== */
+#theme-toggle {
+	cursor: pointer;
+}
+
+/* ===== Dark mode ===== */
+body.dark-mode {
+	background-color: #1a1d21;
+	color: #d4d8dd;
+}
+body.dark-mode #header {
+	background-color: rgba(20, 22, 26, 0.95);
+}
+body.dark-mode #header .logo strong,
+body.dark-mode #header .logo span {
+	color: #ffffff;
+}
+body.dark-mode #main {
+	background-color: #1a1d21;
+}
+body.dark-mode #events,
+body.dark-mode #faq {
+	background-color: #1a1d21 !important;
+}
+body.dark-mode #why {
+	background-color: #22262b !important;
+}
+body.dark-mode #events h2,
+body.dark-mode #why h2,
+body.dark-mode #faq h2,
+body.dark-mode .content-section h3,
+body.dark-mode #contact h2,
+body.dark-mode #contact h3 {
+	color: #ffffff !important;
+}
+body.dark-mode #events p,
+body.dark-mode #why p,
+body.dark-mode #faq p,
+body.dark-mode #contact p {
+	color: #b6bcc4 !important;
+}
+body.dark-mode .alt-bg {
+	background-color: #22262b;
+}
+body.dark-mode .event-card {
+	background: #262a30;
+	border-color: #353a42;
+}
+body.dark-mode .event-body h3 {
+	color: #ffffff;
+}
+body.dark-mode .event-body p {
+	color: #c5cad1;
+}
+body.dark-mode .event-meta {
+	color: #9aa0a8;
+}
+body.dark-mode .stat-label {
+	color: #b6bcc4;
+}
+body.dark-mode .faq-item,
+body.dark-mode .faq-item:first-child {
+	border-color: #353a42;
+}
+body.dark-mode button.faq-question {
+	color: #e6e8ea;
+}
+body.dark-mode #contact .contact-heading {
+	color: #ffffff;
+}
+body.dark-mode #contact .contact-subtitle {
+	color: #b6bcc4;
+}
+body.dark-mode .faq-answer {
+	color: #b6bcc4;
+}
+body.dark-mode #contact {
+	background-color: #22262b;
+}
+body.dark-mode #contact input[type="text"],
+body.dark-mode #contact input[type="email"],
+body.dark-mode #contact textarea {
+	background-color: #1a1d21;
+	color: #e6e8ea;
+	border-color: #353a42;
+}
+body.dark-mode #footer {
+	background-color: #14171a;
+}
+
+/* Smooth transition between themes */
+body, .event-card, .faq-item, #contact, #header {
+	transition: background-color .25s ease, color .25s ease, border-color .25s ease;
+}
+
+/* ===== Misc polish ===== */
+#banner {
+	background-image: linear-gradient(to top, rgba(19,21,25,0.5), rgba(19,21,25,0.5)), url("../../images/banner.jpg");
+}
+#header .logo strong {
+	letter-spacing: 0.08em;
+}
