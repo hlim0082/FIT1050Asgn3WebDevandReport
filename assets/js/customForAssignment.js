@@ -81,15 +81,35 @@
 	}
 
 	/* -------------------------------------------------------------
+	 * 3. Accessibility patch for Forty's tile overlay links
+	 * The template's main.js clones each tile's .link into an empty
+	 * .link.primary anchor that covers the whole tile for the click
+	 * animation. Because it has no text, screen readers announce an
+	 * unnamed link. Since it duplicates the visible titled link, we
+	 * hide it from assistive tech and remove it from the tab order.
+	 * ----------------------------------------------------------- */
+	function patchTileLinks() {
+		var overlays = document.querySelectorAll('.tiles article a.link.primary');
+		overlays.forEach(function (a) {
+			a.setAttribute('aria-hidden', 'true');
+			a.setAttribute('tabindex', '-1');
+		});
+	}
+
+	/* -------------------------------------------------------------
 	 * Boot
 	 * ----------------------------------------------------------- */
-	if (document.readyState === 'loading') {
-		document.addEventListener('DOMContentLoaded', function () {
-			setupFaq();
-			setupTheme();
-		});
-	} else {
+	function init() {
 		setupFaq();
 		setupTheme();
 	}
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', init);
+	} else {
+		init();
+	}
+	// Forty creates the overlay links on window load; run after it.
+	window.addEventListener('load', function () {
+		setTimeout(patchTileLinks, 0);
+	});
 })();

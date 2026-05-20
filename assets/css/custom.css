@@ -335,10 +335,44 @@ body, .event-card, .faq-item, #contact, #header {
 	transition: background-color .25s ease, color .25s ease, border-color .25s ease;
 }
 
+/* ===== "What we do" heading band above the tiles ===== */
+.section-intro {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 5em 3em 0 3em;
+	text-align: center;
+}
+.section-intro header.major {
+	display: inline-block;
+	margin: 0 auto 2em auto;
+}
+/* The intro band sits on Forty's dark-navy base (same as the tiles below it),
+   so its text is light in both default and dark mode. */
+.section-intro h2 {
+	color: #ffffff !important;
+}
+.section-intro p {
+	color: rgba(255,255,255,0.75) !important;
+}
+body.dark-mode .section-intro {
+	background-color: #1a1d21;
+}
+
 /* ===== Misc polish ===== */
 #banner {
 	background-image: linear-gradient(to top, rgba(19,21,25,0.5), rgba(19,21,25,0.5)), url("../../images/banner.jpg");
 }
 #header .logo strong {
 	letter-spacing: 0.08em;
+}
+/* Ensure the logo keeps strong contrast against the header in both states.
+   (Forty's default is white text over the banner; we keep it explicit so a
+   browser auto-dark extension can't drop it to low-contrast black.) */
+#header .logo strong,
+#header .logo span {
+	color: #ffffff !important;
+}
+body.dark-mode #header .logo strong,
+body.dark-mode #header .logo span {
+	color: #ffffff !important;
 }
